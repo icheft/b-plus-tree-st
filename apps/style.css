@@ -1,0 +1,45 @@
+/* CSS */
+.stButton>button {
+  align-items: center;
+  /* background-color: #fff; */
+  border: 1px solid #acacac93;
+  box-sizing: border-box;
+  /* color: #000; */
+  cursor: pointer;
+  display: inline-flex;
+  /* fill: #000; */
+  /* font-family: Inter,sans-serif; */
+  /* font-size: 16px; */
+  /* font-weight: 600; */
+  /* height: 48px; */
+  justify-content: center;
+  letter-spacing: -.8px;
+  /* line-height: 5em; */
+  height: 5em;
+  width: 100%;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.stButton>button:focus {
+  color: #198964;
+}
+
+.stButton>button:hover {
+  border-color: #198964;
+  color: #198964;
+  /* fill: #06f; */
+}
+
+.stButton>button:active {
+  border-color: #198964;
+  color: #f8f8f2;
+  fill: #198964;
+}
+
