@@ -1,6 +1,7 @@
 test/*.txt
 bplus/*v*.py
 bplus/*.cpp
+Pipfile.lock
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,c++,macos,jupyternotebooks
