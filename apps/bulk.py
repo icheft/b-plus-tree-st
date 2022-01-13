@@ -81,7 +81,6 @@ def app(max_degree, input_method):
         if input_method == "Bottom-up":
             # sort asceding
             keys = sorted(st.session_state.data, reverse=False)
-            print(keys)
         else:
             keys = st.session_state.data
         for key in keys:

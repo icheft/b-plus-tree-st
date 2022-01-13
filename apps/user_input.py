@@ -43,8 +43,8 @@ def app(max_degree):
                 exist_key = True
             else:
                 exist_key = False
+                st.session_state.data.append(key)
             # get_data().append(key)
-            st.session_state.data.append(key)
             # bplustree.insert(key)
 
     with row_input_3:
