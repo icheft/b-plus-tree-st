@@ -41,10 +41,15 @@ def app(max_degree, input_method):
     st.title("B+ Tree Visualizer")
     raw_string = read_file()
 
+    if 'data' not in st.session_state:
+        st.session_state.data = []
+
     if raw_string is not None:
         tmp_keys = list(map(int, raw_string.strip().split()))
-        get_data().clear()
-        get_data().extend(tmp_keys)
+        # get_data().clear()
+        st.session_state.data.clear()
+        st.session_state.data.extend(tmp_keys)
+        # get_data().extend(tmp_keys)
 
     row_input_1, row_input_2, row_input_3 = st.columns((4, 1, 1))
     with row_input_1:
@@ -53,30 +58,32 @@ def app(max_degree, input_method):
     exist_key = False
     with row_input_2:
         if st.button("Insert", key=1):
-            if key in get_data():
+            if key in st.session_state.data:
                 exist_key = True
             else:
                 exist_key = False
-                get_data().append(key)
+                # get_data().append(key)
+                st.session_state.data.append(key)
 
     with row_input_3:
         if st.button("Reset"):
-            get_data().clear()
+            # get_data().clear()
+            st.session_state.data.clear()
             if raw_string is not None:
                 tmp_keys = list(map(int, raw_string.strip().split()))
-                get_data().extend(tmp_keys)
+                st.session_state.data.extend(tmp_keys)
 
     if exist_key:
         st.warning("Key already exists")
 
     bplustree = bplus.vis.GraphableBPlusTree(order=max_degree)
-    if (len(get_data()) > 0):
+    if (len(st.session_state.data) > 0):
         if input_method == "Bottom-up":
             # sort asceding
-            keys = sorted(get_data(), reverse=False)
+            keys = sorted(st.session_state.data, reverse=False)
             print(keys)
         else:
-            keys = get_data()
+            keys = st.session_state.data
         for key in keys:
             bplustree.insert(key)
 

@@ -23,6 +23,10 @@ def get_data():
 
 
 def app(max_degree):
+    # If no, then initialize count to 0
+    # If count is already initialized, don't do anything
+    if 'data' not in st.session_state:
+        st.session_state.data = []
 
     st.title("B+ Tree Interactive Visualizer")
     # bplustree = tree(max_degree)
@@ -35,18 +39,20 @@ def app(max_degree):
     exist_key = False
     with row_input_2:
         if st.button("Insert"):
-            if key in get_data():
+            if key in st.session_state.data:
                 exist_key = True
             else:
                 exist_key = False
-            get_data().append(key)
+            # get_data().append(key)
+            st.session_state.data.append(key)
             # bplustree.insert(key)
 
     with row_input_3:
         if st.button("Clear"):
             # for k in get_data():
             #     bplustree.delete(k)
-            get_data().clear()
+            # get_data().clear()
+            st.session_state.data.clear()
             # bplustree.clean(max_degree)
 
     # with row_input_4:
@@ -74,8 +80,8 @@ def app(max_degree):
         st.warning("Key already exists")
 
     bplustree = bplus.vis.GraphableBPlusTree(order=max_degree)
-    if (len(get_data()) > 0):
-        for key in get_data():
+    if (len(st.session_state.data) > 0):
+        for key in st.session_state.data:
             bplustree.insert(key)
 
         g = bplustree.view_graph()
