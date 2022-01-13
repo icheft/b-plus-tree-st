@@ -3,6 +3,8 @@ bplus/*v*.py
 bplus/*.cpp
 Pipfile.lock
 
+bplus/BPTree
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,c++,macos,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,c++,macos,jupyternotebooks

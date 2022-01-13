@@ -2,7 +2,7 @@ import re
 import io
 import pandas as pd
 from datetime import datetime
-import pydot
+import pydotplus
 import bplus
 import os
 from streamlit_option_menu import option_menu
@@ -80,8 +80,8 @@ def app(max_degree):
 
         g = bplustree.view_graph()
         st.graphviz_chart(g, use_container_width=True)
-        graphs = pydot.graph_from_dot_data(g.source)
-        graph = graphs[0]
+        graph = pydotplus.graph_from_dot_data(g.source)
+        # graph = graphs[0]
         output_graphviz_png = graph.create_png()
         btn = st.download_button(
             label="Download Graph",

@@ -1,6 +1,6 @@
 import re
 import io
-import pydot
+import pydotplus
 import pandas as pd
 from datetime import datetime
 import bplus
@@ -83,8 +83,8 @@ def app(max_degree, input_method):
         g = bplustree.view_graph()
         st.graphviz_chart(g, use_container_width=True)
 
-        graphs = pydot.graph_from_dot_data(g.source)
-        graph = graphs[0]
+        graph = pydotplus.graph_from_dot_data(g.source)
+        # graph = graphs[0]
         output_graphviz_png = graph.create_png()
         btn = st.download_button(
             label="Download Graph",
