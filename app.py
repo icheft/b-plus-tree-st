@@ -17,7 +17,7 @@ SORT_BY_RECENT = 1
 # Set page title and favicon.
 st.set_page_config(
     page_title="B+ Tree",
-    page_icon=LOGO_URL, layout="centered",
+    page_icon=":deciduous_tree:", layout="centered",
     menu_items={
         'Get Help': None,
         'Report a bug': None,
